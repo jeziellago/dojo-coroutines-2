@@ -20,11 +20,19 @@ class MoviesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setupViews()
 
-        // TODO: bind data
-        // popularMoviesAdapter.submitList(...)
-        // nowPlayingMoviesAdapter.submitList(...)
+        setupViews()
+        setupStateObserver()
+    }
+
+    private fun setupStateObserver() {
+        moviesViewModel.getMovies().observe(this) { listMovies ->
+            popularMoviesAdapter.submitList(listMovies)
+        }
+
+        moviesViewModel.getNowMovies().observe(this){ listNowMovies ->
+            nowPlayingMoviesAdapter.submitList(listNowMovies)
+        }
     }
 
     private fun setupViews() {

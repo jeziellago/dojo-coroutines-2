@@ -15,6 +15,7 @@ class MoviesAdapter(
         val view = LayoutInflater
                 .from(parent.context)
                 .inflate(R.layout.movie_item, parent, false)
+
         return MoviesViewHolder(view)
     }
 

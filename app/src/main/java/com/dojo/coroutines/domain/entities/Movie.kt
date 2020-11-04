@@ -4,5 +4,5 @@ data class Movie(
     val title: String,
     val votes: Float,
     val posterUrl: String,
-    val genre: String
+    val genres: List<Genre>
 )

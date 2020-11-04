@@ -12,14 +12,24 @@ class MoviesLocalDataSourceImpl(
         page: Int,
         result: Result<List<MoviesResponse.Movie>>.() -> Unit
     ) {
-        cache.get("popular_movies_$page", result)
+        cache.get<CacheableList<MoviesResponse.Movie>>("popular_movies_$page") {
+            onSuccess {
+                result(Result.success(it.items.toList()))
+            }
+            onFailure { result(Result.failure(it)) }
+        }
     }
 
     override suspend fun getNowPlayingMovies(
         page: Int,
         result: Result<List<MoviesResponse.Movie>>.() -> Unit
     ) {
-        cache.get("now_playing_movies_$page", result)
+        cache.get<CacheableList<MoviesResponse.Movie>>("now_playing_movies_$page") {
+            onSuccess {
+                result(Result.success(it.items.toList()))
+            }
+            onFailure { result(Result.failure(it)) }
+        }
     }
 
     override suspend fun savePopularMovies(

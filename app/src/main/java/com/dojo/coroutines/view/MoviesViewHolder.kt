@@ -11,7 +11,7 @@ class MoviesViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     fun bindTo(movie: Movie) {
         with(view) {
             tvMovieTitle.text = movie.title
-            tvMovieGenre.text = movie.genre
+            tvMovieGenre.text = movie.genres.joinToString { it.name }
             tvMovieVotes.text = movie.votes.toString()
             imgMovie.load("https://image.tmdb.org/t/p/w500${movie.posterUrl}")
         }
