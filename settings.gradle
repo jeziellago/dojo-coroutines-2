@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Coroutines Dojo 2"

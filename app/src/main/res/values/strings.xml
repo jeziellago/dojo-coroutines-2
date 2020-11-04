@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Coroutines Dojo 2 - Movies</string>
+    <string name="now_playing_movies">Now Playing Movies:</string>
+    <string name="popular_movies">Popular Movies:</string>
+</resources>
